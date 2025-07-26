@@ -7,12 +7,42 @@
 </head>
 <body>
     <script src="car.js"></script>
-    <p id="carMake"></p>
-    <p id="carModel"></p>
-    <p id="carYear"></p>
-    <p id="carColor"></p>
-    <p id="carType"></p>
-    
+<style> 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .carInfo {
+            font-size: 18px;
+            display: flex;
+            flex-direction: row;
+            gap: 25px;
+        }
+
+
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        </style> 
+
+    <div class="carInfo">   
+        <p id="carMake"></p>
+        <p id="carModel"></p>
+        <p id="carYear"></p>
+        <p id="carColor"></p>
+        <p id="carType"></p>
+    </div>
+
+
 
     <button onclick="car.start()">Start Car</button>
     <button onclick="car.stop()">Stop Car</button>
