@@ -1,0 +1,79 @@
+<!--
+HTML Form for loan payment calculator
+-->
+
+<form name="loandata">
+    <table>
+        <tr>
+            <td colspan="3"><b>Enter Loan Information:</b></td>
+        </tr>
+        <tr>
+            <td>1:</td>
+            <td>Amount of the loan (Any currency):</td>
+            <td><input type="text" name="principal" size="12" onchange="calculate()"></td>
+        </tr>
+        <tr>
+            <td>2:</td>
+            <td>Annual interest rate (as a percentage):</td>
+            <td><input type="text" name="interest" size="12" onchange="calculate()"></td>
+        </tr>
+        <tr>
+            <td>3:</td>
+            <td>Number of payments (Months):</td>
+            <td><input type="text" name="payments" size="12" onchange="calculate()"></td>
+        </tr>
+        <tr>
+            <td>4:</td>
+            <td>Monthly payment:</td>
+            <td><input type="text" name="payment" size="12" readonly></td>
+        </tr>
+        <tr>
+            <td>5:</td>
+            <td>Monthly interest:</td>
+            <td><input type="text" name="interestpayment" size="12" readonly></td>
+        </tr>
+        <tr>
+            <td>6:</td>
+            <td>Your Total Interest payments will be:</td>
+            <td><input type="text" name="totalpayment" size="12" readonly></td>
+        </tr>
+    </table>
+</form>
+
+<script>
+function calculate() {
+    var principal = parseFloat(document.loandata.principal.value);
+    var annualInterest = parseFloat(document.loandata.interest.value);
+    var payments = parseInt(document.loandata.payments.value);
+
+    if (isNaN(principal) || isNaN(annualInterest) || isNaN(payments) || principal <= 0 || annualInterest < 0 || payments <= 0) {
+        document.loandata.payment.value = "";
+        document.loandata.totalpayment.value = "";
+        document.loandata.interestpayment.value = "";
+        return;
+    }
+
+    var interest = annualInterest / 100 / 12;
+
+    // Now compute the monthly payment
+    var x = Math.pow(1 + interest, payments);
+    var monthly = (principal * x * interest) / (x - 1);
+
+    // Check that the result is a finite number. If so, display the results
+    if (!isNaN(monthly) && isFinite(monthly)) {
+        document.loandata.payment.value = monthly.toFixed(2);
+        document.loandata.interestpayment.value = (monthly * interest).toFixed(2);
+        document.loandata.totalpayment.value = (monthly * payments - principal).toFixed(2);
+    } else {
+        document.loandata.payment.value = "";
+        document.loandata.totalpayment.value = "";
+        document.loandata.interestpayment.value = "";
+        alert("Please enter valid numbers for all fields.");
+    }
+}
+
+// This simple method rounds a number to two decimal places.
+function round(x) {
+    return Math.round(x * 100) / 100;
+}
+</script>
