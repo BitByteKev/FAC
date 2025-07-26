@@ -4,7 +4,7 @@ let car = {
     color: "Blue",
     type: "GT",
     start: function() {
-        alert("Car started");
+       alert("Car started");
         console.log("Car is now running.")
     },
     stop: function() {
@@ -13,6 +13,7 @@ let car = {
     }
 }
 
+
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("carModel").innerText = car.model;
     document.getElementById("carYear").innerText = car.year;
@@ -20,10 +21,10 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("carType").innerText = car.type;
 });
 
-let arrKeys = Object.keys(car);
-for(let i = 0; i < arrKeys.length; i++) {
+ let arrKeys = Object.keys(car);
+ for(let i = 0; i < arrKeys.length; i++) {
     console.log(arrKeys[i] + ": " + car[arrKeys[i]]);
-}
+ }
 
 console.log("Car properties:", arrKeys);
 
@@ -33,3 +34,7 @@ console.log("Arr Entries:", arrEntries);
 for (const [key, value] of Object.entries(car)) {
     console.log(`${key}: ${value}`);
 }
+
+
+
+

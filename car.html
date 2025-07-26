@@ -4,35 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAR</title>
+    <link rel="stylesheet" href="car.css">
 </head>
 <body>
     <script src="car.js"></script>
-<style> 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-        }
-
-        .carInfo {
-            font-size: 18px;
-            display: flex;
-            flex-direction: row;
-            gap: 25px;
-        }
-
-
-        button {
-            padding: 10px 15px;
-            font-size: 16px;
-            margin: 5px;
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-        </style> 
 
     <div class="carInfo">   
         <p id="carMake"></p>
@@ -42,7 +17,7 @@
         <p id="carType"></p>
     </div>
 
-
+<img src="2025-Ford-Mustang.jpg" alt="Car Image" style="width: 300px; height: auto;">
 
     <button onclick="car.start()">Start Car</button>
     <button onclick="car.stop()">Stop Car</button>
