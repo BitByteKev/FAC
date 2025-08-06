@@ -21,6 +21,9 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("carType").innerText = car.type;
 });
 
+
+// Arrays and Loops
+
  let arrKeys = Object.keys(car);
  for(let i = 0; i < arrKeys.length; i++) {
     console.log(arrKeys[i] + ": " + car[arrKeys[i]]);
@@ -36,5 +39,4 @@ for (const [key, value] of Object.entries(car)) {
 }
 
 
-
-
+// 
